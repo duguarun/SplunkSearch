@@ -6,8 +6,8 @@
 pip install -r requirements.txt
 ```
 ## Configuration
-Option-1:
 
+Option-1:
     Manually configure all the variables like splunk username, password, url, search queries in 'splunk_config.ini' as shown below,
 
 ```bash
@@ -32,6 +32,7 @@ python splunk_search.py
 ```
 ## Expected Results
 ```bash
+python splunk_search.py
 Events are capturted in 'splunk_results.json' file
 Initiating Email....
 Mail sent
