@@ -99,7 +99,7 @@ class SplunkSearch():
             self.url = config['splunk']['url']
             self.username = config['splunk']['username']
             self.password = config['splunk']['password']
-            self.search = config['splunk']['search']
+            self.search = 'search '+ config['splunk']['custom_search'].strip()
             self.post_data = {}
         except KeyError as e: 
             print("Attribute {} is missing in 'splunk_config.ini'".format(e))
@@ -112,8 +112,12 @@ class SplunkSearch():
         '''
             change/set the serach query using this method
         '''
-        self.search = 'search ' + str(query)
+        self.search = 'search ' + str(query).strip()
+
     def prepare_post_data(self):
+        '''
+           preparing the data which is required to post the request to create job with requested search query
+        '''
         self.post_data = {
             'rf': config['splunk']['rf'],
             'auto_cancel': config['splunk']['auto_cancel'],
@@ -124,8 +128,8 @@ class SplunkSearch():
             'custom.workload_pool': config['splunk']['custom_workload_pool'],
             'custom.display.page.search.tab': config['splunk']['custom_display_page_search_tab'],
             'custom.search': config['splunk']['custom_search'],
-            'custom.dispatch.earliest_time': config['splunk']['custom_dispatch_earliest_time'],
-            'custom.dispatch.latest_time': config['splunk']['custom_dispatch_latest_time'],
+            'custom.dispatch.earliest_time': config['splunk']['earliest_time'],
+            'custom.dispatch.latest_time': config['splunk']['latest_time'],
             'search': self.search,
             'earliest_time': config['splunk']['earliest_time'],
             'latest_time': config['splunk']['latest_time'],
@@ -137,6 +141,9 @@ class SplunkSearch():
         
         
     def execute_query(self):
+        '''
+            Excutes the requested search query and collects the events in json file as output
+        '''
         with requests.Session() as s:
             s.verify = False # disable ssl verification
             s.auth = HTTPBasicAuth(self.username, self.password)

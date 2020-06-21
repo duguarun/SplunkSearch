@@ -3,9 +3,9 @@ import os
 base_dir = os.path.dirname(os.path.abspath(__file__))
 data = {
         'splunk' : {'output_mode': 'json', 
-                    'url': 'https://ec2-3-86-128-32.compute-1.amazonaws.com:8089',
-                    'username': 'admin',
-                    'password': 'password',
+                    'url': 'https://localhost:8089',
+                    'username': 'xxxx',
+                    'password': 'yyyyy',
                     'rf': '*',
                     'auto_cancel': '30',
                     'status_buckets': '300',
@@ -15,18 +15,15 @@ data = {
                     'custom_workload_pool': '',
                     'custom_display_page_search_tab': 'events',
                     'custom_search': 'index=\"_internal\" | top sourcetype',
-                    'custom_dispatch_earliest_time': '-24h@h',
-                    'custom_dispatch_latest_time': 'now',
-                    'search': 'search index="_internal" | top sourcetype',
                     'earliest_time': '-24h@h',
                     'latest_time': 'now',
                     'ui_dispatch_app':'app',
                     'preview':'1'
                    },
-        'smtp': {'username': 'duguarun@gmail.com',
-                 'password': 'Arun0404!',
-                 'sender_email': 'duguarun@gmail.com',
-                 'to_addr': 'duguarun@gmail.com',
+        'smtp': {'username': 'xxxx@gmail.com',
+                 'password': 'yyyyy',
+                 'sender_email': 'xxxxx@gmail.com',
+                 'to_addr': 'xxxxx@gmail.com',
                  'smtp_server': 'smtp.gmail.com',
                  'smtp_port': '465'
                 }
