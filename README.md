@@ -7,7 +7,7 @@ pip install -r requirements.txt
 ```
 ## Configuration
 Option-1:
-<<<<<<< HEAD
+
     Manually configure all the variables like splunk username, password, url, search queries in 'splunk_config.ini' as shown below,
 
 ```bash
@@ -16,16 +16,6 @@ username = xxxx
 password = yyy
 url = https://localhost:8009
 ```
-=======
-    Manually configure all the variables like splunk username, password, url, search queries in 'splunk_config.ini' as shown below. 
-    
-    ```bash
-     custom_search = index="_internal" 
-     username = xxxx
-     password = yyy
-     url = https://localhost:8009
-    ```
->>>>>>> 9f2528c5d0afa902ebe328a787afc8496d7a3688
         
 Option-2:
     Assign values in dict variable 'data' of 'create_splunk_config.py' and execute the below command this will create the 'splunk_config.ini'
@@ -47,5 +37,3 @@ Initiating Email....
 Mail sent
 ```
 After executing 'splunk_search.py' file it will generate the json output file 'splunk_results.json' with all the events in the same directory where 'splunk_search.py' resides also it will initiate email with json file to the to_addr which is configured in 'splunk_config.ini'
-
-
