@@ -7,22 +7,21 @@ pip install -r requirements.txt
 ```
 ## Configuration
 Option-1:
-    Manually configure all the variables like splunk username, password, url, search queries in 'splunk_config.ini' as shown below
-        ```bash
-        custom_search = index="_internal" 
-        username = xxxx
-        password = yyy
-        url = https://localhost:8009
-        
-        ```
+    Manually configure all the variables like splunk username, password, url, search queries in 'splunk_config.ini' as shown below,
+
+```bash
+custom_search = index="_internal" 
+username = xxxx
+password = yyy
+url = https://localhost:8009
+```
         
 Option-2:
     Assign values in dict variable 'data' of 'create_splunk_config.py' and execute the below command this will create the 'splunk_config.ini'
 
-    ```bash
-    python create_splunk_config.py
-
-    ```
+```bash
+python create_splunk_config.py
+```
 
 
 ## Usage
